@@ -1,0 +1,465 @@
+/* ====================== RESET & BASE ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.2rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.logo span {
+    color: #ff2d55; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #ff2d55;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 280px;
+}
+
+.search-bar i {
+    color: #aaa;
+    margin-right: 0.8rem;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.search-bar input::placeholder {
+    color: #888;
+}
+
+.btn-login, .btn-reserve {
+    padding: 0.75rem 1.6rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ddd;
+}
+
+.btn-login:hover {
+    border-color: #ff2d55;
+    color: #fff;
+}
+
+.btn-reserve {
+    background: #ff2d55;
+    color: white;
+}
+
+.btn-reserve:hover {
+    background: #e02244;
+    transform: translateY(-2px);
+}
+
+.hero {
+    margin-bottom: 25px;
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                url('https://via.placeholder.com/1920x1080/111/222?text=Bugatti+Chiron') center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10,10,10,0.85) 30%, rgba(10,10,10,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-left h1 {
+    font-size: 4.2rem;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    color: #fff;
+}
+
+.hero-left p {
+    font-size: 1.25rem;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    color: #ccc;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-primary {
+    background: #ff2d55;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #e02244;
+    transform: translateY(-4px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #ff2d55;
+}
+
+.hero-right img {
+    width: 90px;
+    height: 50px;
+    max-width: 520px;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transition: transform 0.6s ease;
+}
+
+.hero-right img:hover {
+    transform: scale(1.03);
+}
+
+.search-form {
+    position: relative;
+    z-index: 3;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding: 2rem 2.5rem;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #bbb;
+    font-weight: 500;
+}
+
+.form-group select {
+    background: #111;
+    margin-bottom: 3px;
+    font-weight: lighter;
+    color: white;
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.form-group input {
+    padding: 1rem 1.2rem;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff2d55;
+    box-shadow: 0 0 0 3px rgba(255, 45, 85, 0.2);
+}
+
+.btn-search {
+    padding: 1rem 2rem;
+    background: #ff2d55;
+    color: white;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    height: 54px;
+}
+
+.btn-search:hover {
+    background: #e02244;
+    transform: translateY(-3px);
+}
+
+.featured-cars {
+    padding: 100px 5%;
+    background: #0a0a0a;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.featured-cars h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: #fff;
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.car-card {
+    background: #111;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid #222;
+}
+
+.car-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    border-color: #ff2d55;
+}
+
+.car-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 1.8rem;
+}
+
+.car-info h3 {
+    font-size: 1.45rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.price {
+    color: #ff2d55;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+}
+
+.price strong {
+    font-size: 1.5rem;
+}
+
+.specs {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+    flex-wrap: wrap;
+}
+
+.specs span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+.btn-book {
+    width: 100%;
+    padding: 1rem;
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 1.05rem;
+}
+
+.btn-book:hover {
+    background: #ff2d55;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 80px;
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-left h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-right {
+        order: -1;
+        margin: 0 auto;
+    }
+}
+
+/* @media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .search-bar {
+        min-width: 200px;
+    }
+    
+    .hero {
+        min-height: 650px;
+    }
+    
+    .search-form {
+        grid-template-columns: 1fr;
+        margin: 2rem 5%;
+    }
+} */
+
+@media (max-width: 480px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-left h1 {
+        font-size: 2.4rem;
+    }
+    
+    .hero-left p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .search-bar {
+        min-width: 100%;
+    }
+    
+    .header-right {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo h2 {
+        font-size: 1.6rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+    }
+}
